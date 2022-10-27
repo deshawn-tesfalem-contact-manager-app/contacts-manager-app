@@ -10,7 +10,6 @@ public abstract class ContactUserInteraction {
     }
 
     public static void init(){
-
         load();
         help();
     }
