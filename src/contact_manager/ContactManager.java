@@ -20,7 +20,6 @@ public class ContactManager {
             System.out.println(contact.getInfo());
         }
     }
-
     //iterates through the contact array and if it finds the contact name returns the index to be modified
     //or deleted by the user. it returns -1 if no contact with the specified name is found regardless of case.
     public int getContactIndex(String contactName){
