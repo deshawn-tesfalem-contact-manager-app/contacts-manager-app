@@ -18,15 +18,16 @@ public class ContactManager {
             System.out.println(contact.getInfo());
         }
     }
+
     //iterates through the contact array and if it finds the contact name returns the index to be modified
     //or deleted by the user. it returns -1 if no contact with the specified name iw found regardless fo case.
-    public int getContact(String contactName){
-       for(int indexOfContact = 0; indexOfContact < contacts.size(); indexOfContact++){
-           if(contacts.get(indexOfContact).getName().toLowerCase().equals(contactName.toLowerCase())){
-               return indexOfContact;
-           }
-       }
-       return -1;
+    public int getContactIndex(String contactName){
+        for(int indexOfContact = 0; indexOfContact < contacts.size(); indexOfContact++){
+            if(contacts.get(indexOfContact).getName().equalsIgnoreCase(contactName)){
+                return indexOfContact;
+            }
+        }
+        return -1;
     }
 
     public void contactRetriever(){
@@ -34,15 +35,15 @@ public class ContactManager {
             // reading from the contactFile if it exists
             if (contactsFile.exists()){
                 Scanner read = new Scanner(contactsFile);
-                read.useDelimiter(",");
-
-                while (read.hasNext()){
-
+                read.useDelimiter(", ");
+                while (read.hasNextLine()){
                     //taking the contact file delimited strings and
-                    //turning them into contact objects.
+                    //turning them into contact objects
 
-                    String name = read.next();
-                    String number = read.next();
+                    String[] contactInfo = read.nextLine().split(",");
+                    String name = contactInfo[0];
+                    String number = contactInfo[1];
+
 
                     Contact contact = new Contact(name, number);
 
@@ -53,13 +54,19 @@ public class ContactManager {
 
             } else {
                 //if it doesn't exist create the new file
-                contactsFile.createNewFile();
+                boolean fileCreated = contactsFile.createNewFile();
+                if(fileCreated){
+                    System.out.println("New Contact.ct file created");
+                }else{
+                    System.out.println("Contact.ct could not be created");
+                }
             }
 
         } catch (IOException ioException){
             ioException.printStackTrace();
         }
     }
+
     public void addContact(){}
 
     //takes contact info makes an object and adds it to the contact array
@@ -73,6 +80,5 @@ public class ContactManager {
 //
 //       }
 //    }
-
 
 }
