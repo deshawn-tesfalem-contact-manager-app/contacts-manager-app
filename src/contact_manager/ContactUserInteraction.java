@@ -13,15 +13,19 @@ public abstract class ContactUserInteraction {
         help();
         System.out.print("Enter an option (1, 2, 3, 4, or 5): ");
         String userChoice = scan.nextLine();
-        if(userChoice.equals("5") || userChoice.equalsIgnoreCase("exit")){
-            cm.writeContacts();
+        if(userChoice.equals("6")){
+            saveContacts();
             System.exit(1);
-        }else{
+        }else if(userChoice.equals("7")){
+            System.exit(1);
+        }
+        else{
             switch (userChoice){
                 case "1" -> viewContacts();
                 case "2" -> addContact();
                 case "3" -> searchContact();
                 case "4" -> deleteContact();
+                case "5" -> saveContacts();
             }
         }
         init();
@@ -32,7 +36,9 @@ public abstract class ContactUserInteraction {
         System.out.println("2. Add a new contact.");
         System.out.println("3. Search a contact by name.");
         System.out.println("4. Delete an existing contact.");
-        System.out.println("5. Exit.");
+        System.out.println("5. Save");
+        System.out.println("6. Exit (Saves on exit)");
+        System.out.println("7. Exit (No save)");
     }
     private static void seperate(){
         System.out.println("-------------------------");
@@ -67,7 +73,6 @@ public abstract class ContactUserInteraction {
         String name = scan.next();
         cm.findContacts(name);
         seperate();
-
     }
 
     //taking user input and using the delete contact
@@ -79,6 +84,9 @@ public abstract class ContactUserInteraction {
         cm.deleteContact(name);
         seperate();
 
+    }
+    private static void saveContacts(){
+        cm.writeContacts();
     }
 
 
