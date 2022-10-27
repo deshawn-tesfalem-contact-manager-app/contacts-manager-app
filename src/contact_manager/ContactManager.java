@@ -1,11 +1,13 @@
 package contact_manager;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ContactManager {
+
     private final ArrayList<Contact> contacts = new ArrayList<>();
     private static final File contactsFile = new File("Contacts.ct");
 
@@ -41,6 +43,9 @@ public class ContactManager {
                     //taking the contact file delimited strings and
                     //turning them into contact objects
                     String currentLine = read.nextLine();
+
+                    //fixed delimiter error on blank lines by ignoring blank lines
+                    //in totality
                     if(!currentLine.isBlank()){
 
                         String[] contactInfo = currentLine.split(",");
@@ -56,8 +61,8 @@ public class ContactManager {
                     }
 
                 }
-                read.close();
 
+                read.close();
             } else {
                 //if it doesn't exist create the new file
                 boolean fileCreated = contactsFile.createNewFile();
@@ -81,10 +86,29 @@ public class ContactManager {
         contacts.add(contact);
     }
     public void deleteContact(){}
-//    public void deleteContact(String contactName){
-//       if{
-//
-//       }
-//    }
+    public void deleteContact(String contactName){
+        int conttactIndex = getContactIndex(contactName);
+       if(conttactIndex != -1){
+           contacts.remove(conttactIndex);
+       }
+    }
+    public void writeContacts(){
+        String allContacts = new String();
+
+        try{
+            FileWriter fr = new FileWriter("Contacts.ct", false);
+            for(Contact contact: contacts){
+                String nameAndNumber = String.format("%s,%s\n",
+                        contact.getName(), contact.getNumber());
+                allContacts += nameAndNumber;
+            }
+            fr.write(allContacts);
+            fr.close();
+
+        }catch(IOException ioException){
+            ioException.printStackTrace();
+        }
+
+    }
 
 }
