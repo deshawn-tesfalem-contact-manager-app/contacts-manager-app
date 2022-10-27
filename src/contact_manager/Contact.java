@@ -31,6 +31,11 @@ public class Contact {
     public String getInfo(){
         return (String.format("%s | %s", name, number));
     }
+    public boolean contains(String contactName){
+        String name = this.name.toLowerCase();
+        contactName = contactName.toLowerCase();
+        return(name.contains(contactName));
+    }
 
     @Override
     public boolean equals(Object o) {

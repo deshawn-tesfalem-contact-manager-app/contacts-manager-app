@@ -25,7 +25,7 @@ public class ContactManager {
     //or deleted by the user. it returns -1 if no contact with the specified name is found regardless of case.
     public int getContactIndex(String contactName){
         for (int indexOfContact = 0; indexOfContact < contacts.size(); indexOfContact++){
-            if(contacts.get(indexOfContact).getName().equalsIgnoreCase(contactName)){
+            if (contacts.get(indexOfContact).getName().equalsIgnoreCase(contactName)){
                 return indexOfContact;
             }
         }
@@ -85,13 +85,24 @@ public class ContactManager {
         Contact contact = new Contact(name, number);
         contacts.add(contact);
     }
+
     public void deleteContact(){}
     public void deleteContact(String contactName){
-        int conttactIndex = getContactIndex(contactName);
-       if(conttactIndex != -1){
-           contacts.remove(conttactIndex);
+        int contactIndex = getContactIndex(contactName);
+        if (contactIndex != -1){
+           contacts.remove(contactIndex);
        }
     }
+
+    public void findContacts(String contactName){
+        System.out.println("        ---- Contacts found ----       ");
+        for(Contact contact: contacts){
+            if (contact.contains(contactName)){
+                System.out.println(contact.getInfo());
+            }
+        }
+    }
+
     public void writeContacts(){
         String allContacts = new String();
 
