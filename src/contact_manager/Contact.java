@@ -31,4 +31,20 @@ public class Contact {
     public String getInfo(){
         return (String.format("%s | %s", name, number));
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Contact))
+            return false;
+        Contact other = (Contact) o;
+
+        boolean valueEquals = (this.name == null && other.name == null)
+                || (this.name != null && this.name.equals(other.name));
+
+//        boolean storeEquals = (this.number == null && other.number == null)
+//                || (this.number != null && this.number.equals(other.number));
+        return valueEquals;
+    }
 }
