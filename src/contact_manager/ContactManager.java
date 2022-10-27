@@ -32,35 +32,30 @@ public class ContactManager {
     }
 
     public void contactRetriever(){
+        File contactsFile = new File("Contacts.ct");
         try {
             // reading from the contactFile if it exists
             if (contactsFile.exists()){
 
                 Scanner read = new Scanner(contactsFile);
+
                 read.useDelimiter(", ");
                 while (read.hasNextLine()){
                     //taking the contact file delimited strings and
                     //turning them into contact objects
                     String currentLine = read.nextLine();
-
                     //fixed delimiter error on blank lines by ignoring blank lines
                     //in totality
                     if(!currentLine.isBlank()){
 
                         String[] contactInfo = currentLine.split(",");
-
                         String name = contactInfo[0];
                         String number = contactInfo[1];
-
-
                         Contact contact = new Contact(name, number);
-
                         //adding the contact to the static contact array
                         contacts.add(contact);
                     }
-
                 }
-
                 read.close();
             } else {
                 //if it doesn't exist create the new file
@@ -77,22 +72,16 @@ public class ContactManager {
         }
     }
 
-    public void addContact(){}
-
     //takes contact info makes an object and adds it to the contact array
     public void addContact(String name, String number){
-        Contact contact = new Contact(name, number);
-        contacts.add(contact);
+        contacts.add(new Contact(name, number));
     }
-
-    public void deleteContact(){}
     public void deleteContact(String contactName){
         int contactIndex = getContactIndex(contactName);
         if (contactIndex != -1){
            contacts.remove(contactIndex);
        }
     }
-
     public void findContacts(String contactName){
         System.out.println("        ---- Contacts found ----       ");
         for(Contact contact: contacts){
