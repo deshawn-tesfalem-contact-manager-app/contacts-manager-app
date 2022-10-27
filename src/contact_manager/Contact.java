@@ -29,7 +29,7 @@ public class Contact {
         this.number = number;
     }
     public String getInfo(){
-        return (String.format("%s, %s", name, number));
+        return (String.format("%s | %s", name, number));
     }
 
     @Override
