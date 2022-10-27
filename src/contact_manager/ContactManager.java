@@ -41,6 +41,9 @@ public class ContactManager {
                     //taking the contact file delimited strings and
                     //turning them into contact objects
                     String currentLine = read.nextLine();
+
+                    //fixed delimiter error on blank lines by ignoring blank lines
+                    //in totality
                     if(!currentLine.isBlank()){
 
                         String[] contactInfo = currentLine.split(",");
@@ -56,8 +59,8 @@ public class ContactManager {
                     }
 
                 }
-                read.close();
 
+                read.close();
             } else {
                 //if it doesn't exist create the new file
                 boolean fileCreated = contactsFile.createNewFile();
@@ -81,10 +84,11 @@ public class ContactManager {
         contacts.add(contact);
     }
     public void deleteContact(){}
-//    public void deleteContact(String contactName){
-//       if{
-//
-//       }
-//    }
+    public void deleteContact(String contactName){
+        int conttactIndex = getContactIndex(contactName);
+       if(conttactIndex != -1){
+           contacts.remove(conttactIndex);
+       }
+    }
 
 }
