@@ -43,7 +43,8 @@ public class Contact {
         * false unless its a string then it compares the Contact.name to the string*/
         if (!(o instanceof Contact)){
            if(o instanceof  String){
-               return this.name == (String) o;
+               return this.name.toLowerCase().contains(
+                       (String) ((String) o).toLowerCase());
            }
            return false;
         }

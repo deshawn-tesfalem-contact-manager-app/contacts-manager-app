@@ -1,11 +1,16 @@
 package contact_manager;
 
+import java.util.ArrayList;
+
 public class ContactTester {
     public static void main(String[] args) {
         Contact name1 = new Contact("John", "210-678-6539");
         Contact name2 = new Contact("frank", "210-678-6539");
         Contact name3 = new Contact("robert", "210-678-6539");
         Contact name4 = new Contact("amy", "210-678-6539");
+        Contact name5 = new Contact("John", "210-908-909");
+        Contact name6 = new Contact("John", "910-890-9089");
+        Contact name7 = new Contact("John doe", "704-676-9979");
 
         System.out.println(name1.getName());
         System.out.println(name1.getNumber());
@@ -36,6 +41,20 @@ public class ContactTester {
         Boolean found = name3.equals(search);
 
         System.out.println("Found the search item equals: " + found);
+
+        ArrayList<Contact> contacts = new ArrayList<>();
+        contacts.add(name1);
+        contacts.add(name2);
+        contacts.add(name3);
+        contacts.add(name5);
+        contacts.add(name6);
+        contacts.add(name7);
+
+        for (Contact contact : contacts) {
+            if(contact.equals("FRANK")){
+                System.out.println(contact.getInfo());
+            }
+        }
 
     }
 }
