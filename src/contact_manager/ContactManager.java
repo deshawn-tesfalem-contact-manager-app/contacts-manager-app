@@ -14,19 +14,29 @@ public class ContactManager {
             System.out.println(contact.getInfo());
         }
     }
-
+    public int getContactIndex(String contactName){
+        for(int indexOfContact = 0; indexOfContact < contacts.size(); indexOfContact++){
+            if(contacts.get(indexOfContact).getName().equalsIgnoreCase(contactName)){
+                return indexOfContact;
+            }
+        }
+        return -1;
+    }
     public void contactRetriever(){
         try {
             // reading from the contactFile if it exist
             if (contactsFile.exists()){
                 Scanner read = new Scanner(contactsFile);
-                read.useDelimiter(",");
+                read.useDelimiter(", ");
 
-                while (read.hasNext()){
+                while (read.hasNextLine()){
                     //taking the contact file delimited strings and
-                    //turning them into contact objects.
-                    String name = read.next();
-                    String number = read.next();
+                    //turning them into contact objects
+
+                    String[] contactInfo = read.nextLine().split(",");
+                    String name = contactInfo[0];
+                    String number = contactInfo[1];
+
                     Contact contact = new Contact(name, number);
                     //adding the contact to the static contact array
                     contacts.add(contact);
@@ -35,11 +45,30 @@ public class ContactManager {
 
             } else {
                 //if it doesn't exist create the new file
-                contactsFile.createNewFile();
+                boolean fileCreated = contactsFile.createNewFile();
+                if(fileCreated){
+                    System.out.println("New Contact.ct file created");
+                }else{
+                    System.out.println("Contact.ct could not be created");
+                }
             }
 
         } catch (IOException ioException){
             ioException.printStackTrace();
         }
     }
+
+    public void addContact(){}
+
+    //takes contact info makes an object and adds it to the contact array
+    public void addContact(String name, String number){
+        Contact contact = new Contact(name, number);
+        contacts.add(contact);
+    }
+    public void deleteContact(){}
+//    public void deleteContact(String contactName){
+//       if{
+//
+//       }
+//    }
 }

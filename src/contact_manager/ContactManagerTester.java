@@ -11,6 +11,11 @@ public class ContactManagerTester {
         //test if contacts were added
         cm.getContacts();
 
+        //gets the index of given string contactname and returns it if
+        //found otherwise it returns -1
+        System.out.println(cm.getContactIndex("john"));
+        System.out.println(cm.getContactIndex("samantha"));
+
     }
 
 
