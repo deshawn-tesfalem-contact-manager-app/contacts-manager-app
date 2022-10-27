@@ -6,12 +6,6 @@ public class ContactTester {
         Contact name2 = new Contact("frank", "210-678-6539");
         Contact name3 = new Contact("robert", "210-678-6539");
         Contact name4 = new Contact("amy", "210-678-6539");
-
-        System.out.println(name1.getInfo());
-        System.out.println(name1.getInfo());
-
-
-
     }
 }
 // 1. View contacts.
