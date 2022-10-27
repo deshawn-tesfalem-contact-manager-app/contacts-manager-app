@@ -20,9 +20,9 @@ public class ContactManager {
     }
 
     //iterates through the contact array and if it finds the contact name returns the index to be modified
-    //or deleted by the user. it returns -1 if no contact with the specified name iw found regardless fo case.
+    //or deleted by the user. it returns -1 if no contact with the specified name is found regardless of case.
     public int getContactIndex(String contactName){
-        for(int indexOfContact = 0; indexOfContact < contacts.size(); indexOfContact++){
+        for (int indexOfContact = 0; indexOfContact < contacts.size(); indexOfContact++){
             if(contacts.get(indexOfContact).getName().equalsIgnoreCase(contactName)){
                 return indexOfContact;
             }
@@ -61,9 +61,9 @@ public class ContactManager {
             } else {
                 //if it doesn't exist create the new file
                 boolean fileCreated = contactsFile.createNewFile();
-                if(fileCreated){
+                if (fileCreated){
                     System.out.println("New Contact.ct file created");
-                }else{
+                } else {
                     System.out.println("Contact.ct could not be created");
                 }
             }
