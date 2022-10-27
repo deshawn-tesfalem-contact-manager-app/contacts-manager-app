@@ -34,21 +34,27 @@ public class ContactManager {
         try {
             // reading from the contactFile if it exists
             if (contactsFile.exists()){
+
                 Scanner read = new Scanner(contactsFile);
                 read.useDelimiter(", ");
                 while (read.hasNextLine()){
                     //taking the contact file delimited strings and
                     //turning them into contact objects
+                    String currentLine = read.nextLine();
+                    if(!currentLine.isBlank()){
 
-                    String[] contactInfo = read.nextLine().split(",");
-                    String name = contactInfo[0];
-                    String number = contactInfo[1];
+                        String[] contactInfo = currentLine.split(",");
+
+                        String name = contactInfo[0];
+                        String number = contactInfo[1];
 
 
-                    Contact contact = new Contact(name, number);
+                        Contact contact = new Contact(name, number);
 
-                    //adding the contact to the static contact array
-                    contacts.add(contact);
+                        //adding the contact to the static contact array
+                        contacts.add(contact);
+                    }
+
                 }
                 read.close();
 
