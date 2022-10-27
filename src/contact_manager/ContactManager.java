@@ -1,11 +1,13 @@
 package contact_manager;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ContactManager {
+
     private final ArrayList<Contact> contacts = new ArrayList<>();
     private static final File contactsFile = new File("Contacts.ct");
 
@@ -89,6 +91,24 @@ public class ContactManager {
        if(conttactIndex != -1){
            contacts.remove(conttactIndex);
        }
+    }
+    public void writeContacts(){
+        String allContacts = new String();
+
+        try{
+            FileWriter fr = new FileWriter("Contacts.ct", false);
+            for(Contact contact: contacts){
+                String nameAndNumber = String.format("%s,%s\n",
+                        contact.getName(), contact.getNumber());
+                allContacts += nameAndNumber;
+            }
+            fr.write(allContacts);
+            fr.close();
+
+        }catch(IOException ioException){
+            ioException.printStackTrace();
+        }
+
     }
 
 }
