@@ -34,13 +34,25 @@ public class Contact {
 
     @Override
     public boolean equals(Object o) {
+
         if (o == this)
             return true;
-        if (!(o instanceof Contact other))
-            return false;
-        //        boolean storeEquals = (this.number == null && other.number == null)
-//                || (this.number != null && this.number.equals(other.number));
+
+        /* Checks if the Object passed to the equals() method
+        * is an instance of the Contact method and if its not it returns
+        * false unless its a string then it compares the Contact.name to the string*/
+        if (!(o instanceof Contact)){
+           if(o instanceof  String){
+               return this.name == (String) o;
+           }
+           return false;
+        }
+
+        Contact other = (Contact) o;
+
+        /*Compares the names of two contact objects and returns true if they are the same*/
         return (this.name == null && other.name == null)
-                || (this.name != null && this.name.equals(other.name));
+                || (this.name != null && this.name.equals(other.name)
+                && this.number.equals(other.number));
     }
 }
