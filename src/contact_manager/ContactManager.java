@@ -9,10 +9,24 @@ public class ContactManager {
     private final ArrayList<Contact> contacts = new ArrayList<>();
     private static final File contactsFile = new File("Contacts.ct");
 
+
+    //function shows all the contacts in the given contacts array
+    //by accessing the contact.getinfo() method on each item as
+    //it iterates throught the items
     public void getContacts(){
         for (Contact contact : contacts) {
             System.out.println(contact.getInfo());
         }
+    }
+    //iterates through the contact array and if it finds the contact name returns the index to be modified
+    //or deleted by the user. it returns -1 if no contact with the specified name iw found regardless fo case.
+    public int getContact(String contactName){
+       for(int indexOfContact = 0; indexOfContact < contacts.size() -1; indexOfContact++){
+           if(contacts.get(indexOfContact).getName().toLowerCase().equals(contactName.toLowerCase())){
+               return indexOfContact;
+           }
+       }
+       return -1;
     }
 
     public void contactRetriever(){
@@ -42,4 +56,14 @@ public class ContactManager {
             ioException.printStackTrace();
         }
     }
+    public void addContact(
+
+    ){}
+
+    //takes contact info makes an object and adds it to the contact array
+    public void addContact(String name, String number){
+        Contact contact = new Contact(name, number);
+        contacts.add(contact);
+    }
+
 }
