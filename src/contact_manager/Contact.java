@@ -36,15 +36,11 @@ public class Contact {
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof Contact))
+        if (!(o instanceof Contact other))
             return false;
-        Contact other = (Contact) o;
-
-        boolean valueEquals = (this.name == null && other.name == null)
-                || (this.name != null && this.name.equals(other.name));
-
-//        boolean storeEquals = (this.number == null && other.number == null)
+        //        boolean storeEquals = (this.number == null && other.number == null)
 //                || (this.number != null && this.number.equals(other.number));
-        return valueEquals;
+        return (this.name == null && other.name == null)
+                || (this.name != null && this.name.equals(other.name));
     }
 }
