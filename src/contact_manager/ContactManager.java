@@ -21,7 +21,7 @@ public class ContactManager {
     //iterates through the contact array and if it finds the contact name returns the index to be modified
     //or deleted by the user. it returns -1 if no contact with the specified name iw found regardless fo case.
     public int getContact(String contactName){
-       for(int indexOfContact = 0; indexOfContact < contacts.size() -1; indexOfContact++){
+       for(int indexOfContact = 0; indexOfContact < contacts.size(); indexOfContact++){
            if(contacts.get(indexOfContact).getName().toLowerCase().equals(contactName.toLowerCase())){
                return indexOfContact;
            }
@@ -31,17 +31,21 @@ public class ContactManager {
 
     public void contactRetriever(){
         try {
-            // reading from the contactFile if it exist
+            // reading from the contactFile if it exists
             if (contactsFile.exists()){
                 Scanner read = new Scanner(contactsFile);
                 read.useDelimiter(",");
 
                 while (read.hasNext()){
+
                     //taking the contact file delimited strings and
                     //turning them into contact objects.
+
                     String name = read.next();
                     String number = read.next();
+
                     Contact contact = new Contact(name, number);
+
                     //adding the contact to the static contact array
                     contacts.add(contact);
                 }
@@ -56,14 +60,19 @@ public class ContactManager {
             ioException.printStackTrace();
         }
     }
-    public void addContact(
-
-    ){}
+    public void addContact(){}
 
     //takes contact info makes an object and adds it to the contact array
     public void addContact(String name, String number){
         Contact contact = new Contact(name, number);
         contacts.add(contact);
     }
+    public void deleteContact(){}
+//    public void deleteContact(String contactName){
+//       if{
+//
+//       }
+//    }
+
 
 }
