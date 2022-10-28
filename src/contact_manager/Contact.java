@@ -9,7 +9,7 @@ public class Contact {
         this.name = "default";
         this.number = "xxx-xxx-xxxx";
     }
-    Contact(String name, String number){
+    public Contact(String name, String number){
         this.name = name;
         this.number = number;
     }
@@ -40,14 +40,14 @@ public class Contact {
     @Override
     public boolean equals(Object o) {
 
-        if (o == this)
+        if (o == this) {
             return true;
-
+        }
         /* Checks if the Object passed to the equals() method
-        * is an instance of the Contact method and if its not it returns
-        * false unless its a string then it compares the Contact.name to the string*/
-        if (!(o instanceof Contact)){
-           if(o instanceof  String){
+        * is an instance of the Contact method and if it's not it returns
+        * false unless it's a string then it compares the Contact.name to the string*/
+        if (!(o instanceof Contact)) {
+           if (o instanceof  String){
                return this.name == (String) o;
            }
            return false;

@@ -32,6 +32,7 @@ public class ContactManager {
     }
 
     public void contactRetriever(){
+        // instantiate an object from File class
         File contactsFile = new File("Contacts.ct");
         try {
             // reading from the contactFile if it exists
