@@ -2,6 +2,7 @@ package contact_manager;
 
 import java.util.Scanner;
 
+
 public abstract class ContactUserInteraction {
     private static final ContactManager cm = new ContactManager();
     private static Scanner scan = new Scanner(System.in);
@@ -9,6 +10,8 @@ public abstract class ContactUserInteraction {
         cm.contactRetriever();
     }
 
+
+    //initialize the user interaction
     public static void init(){
         help();
         System.out.print("Enter an option (1, 2, 3, 4, or 5): ");
