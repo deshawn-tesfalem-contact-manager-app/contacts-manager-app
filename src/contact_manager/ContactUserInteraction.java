@@ -53,7 +53,6 @@ public abstract class ContactUserInteraction {
         seperate();
         cm.getContacts();
         seperate();
-
     }
 
     //takes the users input and uses them in the ContactMangers
