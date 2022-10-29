@@ -34,6 +34,7 @@ public class ContactManager {
     public void contactRetriever(){
         // instantiate an object from File class
         File contactsFile = new File("Contacts.ct");
+
         try {
             // reading from the contactFile if it exists
             if (contactsFile.exists()){
@@ -77,6 +78,7 @@ public class ContactManager {
     public void addContact(String name, String number){
         contacts.add(new Contact(name, number));
     }
+
     public void deleteContact(String contactName){
         int contactIndex = getContactIndex(contactName);
         if (contactIndex != -1){
