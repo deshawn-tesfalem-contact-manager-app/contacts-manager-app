@@ -25,12 +25,17 @@ public class Contact {
         return number;
     }
 
+
     public void editNumber(String number) {
         this.number = number;
     }
+
+    //gets the Contact objects name and number
     public String getInfo(){
         return (String.format("%s | %s", name, number));
     }
+
+    //checks if Contact.name contains given string
     public boolean contains(String contactName){
         String name = this.name.toLowerCase();
         contactName = contactName.toLowerCase();
