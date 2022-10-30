@@ -8,6 +8,9 @@ import java.util.Scanner;
 
 public class ContactManager {
 
+    //used a final array because the contacts array shouldn't be changed
+    //if for any reason someone wanted to write a subclass for the contact
+    //manager class.
     private final ArrayList<Contact> contacts = new ArrayList<>();
     private static final File contactsFile = new File("Contacts.ct");
 
@@ -31,10 +34,9 @@ public class ContactManager {
         return -1;
     }
 
+
     public void contactRetriever(){
         // instantiate an object from File class
-        File contactsFile = new File("Contacts.ct");
-
         try {
             // reading from the contactFile if it exists
             if (contactsFile.exists()){
@@ -98,6 +100,8 @@ public class ContactManager {
         String allContacts = new String();
 
         try {
+            //using the FileWriter object to save the edited, updated, or deleted contacts
+            //because honestly it was just easier to do in the long run.
             FileWriter fr = new FileWriter("Contacts.ct", false);
             for (Contact contact: contacts){
                 String nameAndNumber = String.format("%s,%s\n",

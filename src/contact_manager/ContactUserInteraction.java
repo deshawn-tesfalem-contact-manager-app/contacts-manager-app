@@ -43,6 +43,7 @@ public abstract class ContactUserInteraction {
         System.out.println("6. Exit (Saves on exit)");
         System.out.println("7. Exit (No save)");
     }
+
     private static void seperate(){
         System.out.println("-------------------------");
     }
@@ -77,7 +78,7 @@ public abstract class ContactUserInteraction {
         seperate();
     }
 
-    //taking user input and using the delete contact
+    //taking user input and using the deleteContact()
     //method in the contact manager to find it and remove
     //it from the contacts array by index
     public static void deleteContact() {
@@ -85,8 +86,8 @@ public abstract class ContactUserInteraction {
         String name = scan.next();
         cm.deleteContact(name);
         seperate();
-
     }
+
     private static void saveContacts(){
         cm.writeContacts();
     }
