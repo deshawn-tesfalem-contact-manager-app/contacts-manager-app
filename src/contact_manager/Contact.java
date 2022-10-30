@@ -13,14 +13,13 @@ public class Contact {
         this.name = name;
         this.number = number;
     }
+
     public String getName() {
         return name;
     }
-
     public void editName(String name) {
         this.name = name;
     }
-
     public String getNumber() {
         return number;
     }
@@ -34,7 +33,7 @@ public class Contact {
     public boolean contains(String contactName){
         String name = this.name.toLowerCase();
         contactName = contactName.toLowerCase();
-        return(name.contains(contactName));
+        return (name.contains(contactName));
     }
 
     @Override

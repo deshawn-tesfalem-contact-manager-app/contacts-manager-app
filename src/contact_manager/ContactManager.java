@@ -32,21 +32,20 @@ public class ContactManager {
     }
 
     public void contactRetriever(){
-        // instantiate an object from File class
+        // create a new File instance
         File contactsFile = new File("Contacts.ct");
         try {
             // reading from the contactFile if it exists
             if (contactsFile.exists()){
 
                 Scanner read = new Scanner(contactsFile);
-
                 read.useDelimiter(", ");
-                while (read.hasNextLine()){
-                    //taking the contact file delimited strings and
-                    //turning them into contact objects
+                while (read.hasNextLine()) {
+                    // taking the contact file delimited strings and
+                    // turning them into contact objects
                     String currentLine = read.nextLine();
-                    //fixed delimiter error on blank lines by ignoring blank lines
-                    //in totality
+                    // fixed delimiter error on blank lines by ignoring blank lines
+                    // in totality
                     if (!currentLine.isBlank()) {
 
                         String[] contactInfo = currentLine.split(",");
@@ -99,7 +98,7 @@ public class ContactManager {
             FileWriter fr = new FileWriter("Contacts.ct", false);
             for (Contact contact: contacts){
                 String nameAndNumber = String.format("%s,%s\n",
-                contact.getName(), contact.getNumber());
+                        contact.getName(), contact.getNumber());
                 allContacts += nameAndNumber;
             }
             fr.write(allContacts);
