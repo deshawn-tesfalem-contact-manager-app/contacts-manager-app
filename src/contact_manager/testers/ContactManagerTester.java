@@ -1,4 +1,6 @@
-package contact_manager;
+package contact_manager.testers;
+
+import contact_manager.ContactManager;
 
 public class ContactManagerTester {
     public static void main(String [] args){
