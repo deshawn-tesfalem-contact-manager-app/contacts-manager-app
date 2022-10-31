@@ -97,7 +97,13 @@ public class ContactManager {
             }
         }
     }
-
+    public void editContact(String name, String number){
+        int contactIndex = getContactIndex(name);
+        if(contactIndex != -1){
+            contacts.get(contactIndex).editName(name);
+            contacts.get(contactIndex).editNumber(number);
+        }
+    }
     public void writeContacts() {
         StringBuilder allContacts = new StringBuilder(new String());
 

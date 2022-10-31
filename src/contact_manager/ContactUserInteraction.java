@@ -16,10 +16,10 @@ public abstract class ContactUserInteraction {
         help();
         System.out.print("Enter an option (1, 2, 3, 4, 5, 6, or 7): ");
         String userChoice = scan.nextLine();
-        if (userChoice.equals("6")){
+        if (userChoice.equals("7")){
             saveContacts();
             System.exit(1);
-        } else if (userChoice.equals("7")){
+        } else if (userChoice.equals("8")){
             System.exit(1);
         } else {
             switch (userChoice){
@@ -28,6 +28,7 @@ public abstract class ContactUserInteraction {
                 case "3" -> searchContact();
                 case "4" -> deleteContact();
                 case "5" -> saveContacts();
+                case "6" -> editContact();
             }
         }
         // recursion
@@ -40,10 +41,19 @@ public abstract class ContactUserInteraction {
         System.out.println("3. Search a contact by name.");
         System.out.println("4. Delete an existing contact.");
         System.out.println("5. Save");
-        System.out.println("6. Exit (Saves on exit)");
-        System.out.println("7. Exit (No save)");
+        System.out.println("6. Edit");
+        System.out.println("7. Exit (Saves on exit)");
+        System.out.println("8. Exit (No save)");
     }
-
+    public static void editContact(){
+        System.out.print("\u001B[36m" + "Enter a name:" + "\u001B[0m");
+        String name = scan.nextLine();
+        System.out.print("\u001B[36m"+ "Enter a phone number:" + "\u001B[0m");
+        String number = scan.nextLine();
+        cm.editContact(name,number);
+        System.out.println("if contact exist it was edited");
+        separate();
+    }
     private static void separate(){
         System.out.println("---------------------------------");
     }
