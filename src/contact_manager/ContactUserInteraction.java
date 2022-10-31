@@ -16,21 +16,23 @@ public abstract class ContactUserInteraction {
         help();
         System.out.print("Enter an option (number): ");
         String userChoice = scan.nextLine();
-        if (userChoice.equals("7")){
-            saveContacts();
-            System.exit(1);
-        } else if (userChoice.equals("8")){
-            System.exit(1);
-        } else {
-            switch (userChoice){
-                case "1" -> viewContacts();
-                case "2" -> addContact();
-                case "3" -> searchContact();
-                case "4" -> deleteContact();
-                case "5" -> saveContacts();
-                case "6" -> editContact();
+        switch (userChoice){
+            case "1" -> viewContacts();
+            case "2" -> addContact();
+            case "3" -> searchContact();
+            case "4" -> deleteContact();
+            case "5" -> saveContacts();
+            case "6" -> editContact();
+            case "7" -> {
+                saveContacts();
+                System.exit(1);
             }
+            case "8" -> {
+                System.exit(1);
+            }
+
         }
+
         // recursion
         init();
     }
