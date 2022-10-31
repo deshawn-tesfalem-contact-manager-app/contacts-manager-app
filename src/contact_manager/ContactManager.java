@@ -20,7 +20,7 @@ public class ContactManager {
     //it iterates throught the items
     public void getContacts(){
         for (Contact contact : contacts) {
-            System.out.println(contact.getInfo());
+            System.out.format("%-15s | %15s\n", contact.getName(), contact.getNumber());
         }
     }
     //iterates through the contact array and if it finds the contact name returns the index to be modified

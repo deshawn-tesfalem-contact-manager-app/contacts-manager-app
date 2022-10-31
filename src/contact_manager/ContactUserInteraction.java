@@ -45,12 +45,13 @@ public abstract class ContactUserInteraction {
     }
 
     private static void separate(){
-        System.out.println("-------------------------");
+        System.out.println("---------------------------------");
     }
     //uses the ContactManagers viewContacts method
     //to output all contacts to the console
     public static void viewContacts() {
-        System.out.println("\u001B[33m" + "Name | Phone number" + "\u001B[0m");
+        separate();
+        System.out.format("\u001B[33m" + "%-15s | %15s\n" + "\u001B[0m", "Name", "Phone number");
         separate();
         cm.getContacts();
         separate();
