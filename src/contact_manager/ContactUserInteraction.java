@@ -14,7 +14,7 @@ public abstract class ContactUserInteraction {
     //initialize the user interaction
     public static void init(){
         help();
-        System.out.print("Enter an option (1, 2, 3, 4, 5, 6, or 7): ");
+        System.out.print("Enter an option (number): ");
         String userChoice = scan.nextLine();
         if (userChoice.equals("7")){
             saveContacts();
