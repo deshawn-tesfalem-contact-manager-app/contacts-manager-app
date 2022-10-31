@@ -14,7 +14,7 @@ public abstract class ContactUserInteraction {
     //initialize the user interaction
     public static void init(){
         help();
-        System.out.print("Enter an option (1, 2, 3, 4, or 5): ");
+        System.out.print("Enter an option (1, 2, 3, 4, 5, 6, or 7): ");
         String userChoice = scan.nextLine();
         if (userChoice.equals("6")){
             saveContacts();
@@ -50,7 +50,7 @@ public abstract class ContactUserInteraction {
     //uses the ContactManagers viewContacts method
     //to output all contacts to the console
     public static void viewContacts() {
-        System.out.println("Name | Phone number");
+        System.out.println("\u001B[33m" + "Name | Phone number" + "\u001B[0m");
         separate();
         cm.getContacts();
         separate();
@@ -60,9 +60,9 @@ public abstract class ContactUserInteraction {
     // addContact method, so they can be made into the object and
     // added to the contacts array
     public static void addContact() {
-        System.out.print("Enter a name:");
+        System.out.print("\u001B[36m" + "Enter a name:" + "\u001B[0m");
         String name = scan.nextLine();
-        System.out.print("Enter a phone number:");
+        System.out.print("\u001B[36m"+ "Enter a phone number:" + "\u001B[0m");
         String number = scan.nextLine();
         cm.addContact(name,number);
         separate();
