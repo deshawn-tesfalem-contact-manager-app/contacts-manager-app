@@ -1,6 +1,4 @@
-
 import contact_manager.ContactUserInteraction;
-
 
 //Root of program
 public class Main {

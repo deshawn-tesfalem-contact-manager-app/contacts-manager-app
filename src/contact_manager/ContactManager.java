@@ -99,7 +99,7 @@ public class ContactManager {
     }
 
     public void writeContacts() {
-        String allContacts = new String();
+        StringBuilder allContacts = new StringBuilder(new String());
 
         try {
             //using the FileWriter object to save the edited, updated, or deleted contacts
@@ -108,9 +108,9 @@ public class ContactManager {
             for (Contact contact: contacts){
                 String nameAndNumber = String.format("%s,%s\n",
                         contact.getName(), contact.getNumber());
-                allContacts += nameAndNumber;
+                allContacts.append(nameAndNumber);
             }
-            fr.write(allContacts);
+            fr.write(allContacts.toString());
             fr.close();
 
         } catch (IOException ioException){

@@ -68,7 +68,7 @@ public abstract class ContactUserInteraction {
         separate();
     }
 
-    // takes user input and finds all contact whos name
+    // takes user input and finds all contact who's name
     //  contains the user input
     private static void searchContact() {
         System.out.print("Enter a name to search:");
